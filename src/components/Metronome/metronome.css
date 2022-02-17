@@ -1,0 +1,160 @@
+/* #region Metronome Component */
+.Metronome {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 1.5rem auto;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .Metronome {
+    --gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+  }
+}
+
+.MetronomeControls {
+  text-align: center;
+}
+
+.bpm-display {
+  margin: 1em 0;
+  color: var(--white);
+  text-shadow: 0 0 6px var(--light);
+}
+
+.form {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.checkgroup {
+  display: flex;
+  text-align: center;
+  margin-top: 1em;
+  font-size: 0.75em;
+  color: var(--dark);
+  padding: var(--padding);
+}
+
+.checkgroup label {
+  cursor: pointer;
+}
+
+.checkgroup input {
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+.checkgroup:focus {
+  box-shadow: 2px 2px 2px black;
+}
+/* #endregion */
+
+/* #region Mechanical Metronome */
+.mechanicalMetronome {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 15em;
+  height: 0;
+  border-bottom: 21em solid var(--dark);
+  border-left: 5em solid transparent;
+  border-right: 5em solid transparent;
+  border-radius: var(--borderRadius);
+  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.5);
+  animation: var(--softIn);
+}
+
+.metronome__body-faceplate {
+  position: absolute;
+  top: 1em;
+  width: 10em;
+  height: 0;
+  border-bottom: 15em solid rgba(231, 226, 226, 1);
+  border-left: 3.25em solid transparent;
+  border-right: 3.25em solid transparent;
+  border-radius: var(--borderRadius);
+}
+
+.pendulum {
+  position: relative;
+  top: 2em;
+  right: 0;
+  bottom: 0;
+  left: -0.5em;
+  display: flex;
+  margin: 10em 0em 10em 5em;
+  height: 0.5em;
+  width: 20em;
+  background-color: var(--white);
+  background-image: linear-gradient(
+    to top,
+    rgb(163, 159, 159) 0%,
+    rgba(214, 213, 213, 0.5) 74%
+  );
+  /* border: 1px solid blue; */
+  transform-origin: 8em center;
+  transform: rotateZ(270deg);
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+  --boxShadow: 0em 0.25em 1em rgba(0, 0, 0, 0.25);
+  box-shadow: var(--boxShadow);
+  touch-action: none;
+  pointer-events: all;
+}
+
+.pendulum__top,
+.pendulum__bottom {
+  background-color: transparent;
+  background-image: none;
+  outline: none;
+}
+
+.pendulum__top {
+  -webkit-appearance: none;
+  width: 12em;
+}
+
+.pendulum__bottom {
+  width: 8em;
+}
+
+.pendulum__top::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  border-right: 3em solid rgb(200, 200, 200);
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  width: 0em;
+  height: 3em;
+}
+
+.pendulum__top::-moz-range-thumb {
+  cursor: pointer;
+  border-right: 3em solid rgb(200, 200, 200);
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  width: 0em;
+  height: 3em;
+}
+
+.pendulum__weight {
+  position: relative;
+  left: 0.5em;
+  bottom: 1.25em;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: linear-gradient(
+    to top,
+    rgb(163, 159, 159) 0%,
+    rgba(214, 213, 213, 0.5) 74%
+  );
+  box-shadow: var(--boxShadow);
+}
+/* #endregion */

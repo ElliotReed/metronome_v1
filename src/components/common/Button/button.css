@@ -1,0 +1,19 @@
+.btn {
+  color: var(--light);
+  padding: var(--padding) calc(var(--padding) * 1.5);
+  border: 1px solid var(--darkAccent);
+  border-radius: var(--borderRadius);
+  background: var(--dark);
+  outline: 0;
+  cursor: pointer;
+  box-shadow: var(--boxShadow);
+}
+
+.btn:active {
+  transform: scale(1.0618);
+}
+
+.btn:focus {
+  border: 2px solid var(--medium);
+  border-radius: var(--borderRadius);
+}
